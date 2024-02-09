@@ -3,6 +3,9 @@ import cors from 'cors';
 import { Ave } from './model/Ave';
 import { Reptil } from './model/Reptil';
 import { Mamifero } from './model/Mamifero';
+import { Habitat } from './model/habitat';
+import { Atracao } from './model/Atração';
+import { Zoologico } from './model/Zoologico';
 
 const port = 3000;
 const server = express();
@@ -28,3 +31,26 @@ server.post('/Aves', (req, res) => {
     const NvAve = new Ave(nome, idade, genero, envergadura);
     res.json(NvAve);
 })
+
+server.post('/habitat', (req, res) => {
+    const {nome, animais} = req.body;
+    const habitat = new Habitat(nome, animais);
+    console.log(habitat);
+    res.status(200).json('habitat criado');
+});
+
+server.post('/atracao', (req, res)=>{
+    const {nome,habitat} = req.body;
+    const atracao = new Atracao(nome, habitat);
+    console.log(atracao);
+    res.status(200).json('atração criada');
+
+});
+
+server.post('/zologico', (req, res)=>{
+    const {nome,atracao} = req.body;
+    const zoologico = new Zoologico(nome, atracao);
+    console.log(zoologico);
+    res.status(200).json('zoologico criado');
+
+});
