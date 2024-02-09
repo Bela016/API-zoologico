@@ -13,13 +13,11 @@ export class Atracao {
     public getLista_habitat(): Array<Habitat> {
         return this.lista_de_habitat;
     } 
-    // define a lista de de habitat
-    //@param _lista_de_animais a ser atribuida
+    
     public setLista_habitat(lista_de_habitat: Array<Habitat>): void {
         this.lista_de_habitat = lista_de_habitat;
     }
-    // retorna o nome do habitat
-    // @returns o nome do habitat 
+    
     public getNome(): string {
         return this.nome;
     }
