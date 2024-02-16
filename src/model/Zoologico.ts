@@ -1,4 +1,4 @@
-import { Atracao } from "./Atração";
+import { Atracao } from "./Atracao";
 
 
 export class Zoologico {

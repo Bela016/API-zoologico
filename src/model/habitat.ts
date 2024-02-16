@@ -43,9 +43,19 @@ export class Habitat {
     public getNome(): string {
         return this.name;
     }
+     /**
+     * Método para definir o nome do habitat.
+     * 
+     * @param nome O nome a ser definido para o habitat.
+     */
     public setNome(name: string): void {
         this.name = name;
     }
+       /**
+     * Método para obter a lista de animais no habitat.
+     * 
+     * @returns A lista de animais no habitat.
+     */
 
 
 

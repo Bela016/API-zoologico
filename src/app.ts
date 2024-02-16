@@ -4,7 +4,7 @@ import { Ave } from './model/Ave';
 import { Reptil } from './model/Reptil';
 import { Mamifero } from './model/Mamifero';
 import { Habitat } from './model/habitat';
-import { Atracao } from './model/Atração';
+import { Atracao } from './model/Atracao';
 import { Zoologico } from './model/Zoologico';
 
 const port = 3000;
