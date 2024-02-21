@@ -6,6 +6,8 @@ import { Mamifero } from './model/Mamifero';
 import { Habitat } from './model/habitat';
 import { Atracao } from './model/Atracao';
 import { Zoologico } from './model/Zoologico';
+import { DatabaseModel } from './model/DatabaseModel';
+
 
 const port = 3000;
 const server = express();
@@ -21,10 +23,17 @@ server.get('/', (req, res) => {
     //res.json('olá mundo!');
 })
 
+new DatabaseModel().testeConexao().then((resbd) => {
+    if(resbd){
+        server.listen(port, () => {
+            console.log(`servidor está escutando no endereço http://localhost:${port}`);
+    })
+} else {
+    console.log('nao foi possivel conectar ao banco de dados');
 
-server.listen(port, () => {
-    console.log(`servidor está escutando no endereço http://localhost:${port}`)
-})
+}
+});
+
 
 server.post('/Aves', (req, res) => {
     const { nome, idade, genero, envergadura } = req.body;
