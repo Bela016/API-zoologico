@@ -1,32 +1,32 @@
 ------------------------------------------------------------------------------------
 ------------- CRIANDO TABELAS
 ------------------------------------------------------------------------------------ 
-CREATE TABLE Animal (idAnimal SERIAL NOT NULL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Animal (idAnimal SERIAL NOT NULL PRIMARY KEY,
 					nomeAnimal VARCHAR(50) NOT NULL,
 					idadeAnimal INT,
 					generoAnimal VARCHAR(15) NOT NULL);
 					
-CREATE TABLE Ave (idAve INT,
+CREATE TABLE IF NOT EXISTS Ave (idAve INT,
 				 envergadura FLOAT NOT NULL,
 				 FOREIGN KEY (idAve) REFERENCES Animal(idAnimal));
 				 
-CREATE TABLE Mamifero (idMamifero INT,
+CREATE TABLE IF NOT EXISTS Mamifero (idMamifero INT,
 				 especie VARCHAR(50) NOT NULL,
 				 FOREIGN KEY (idMamifero) REFERENCES Animal(idAnimal));
 				 
-CREATE TABLE Reptil (idReptil INT,
+CREATE TABLE IF NOT EXISTS Reptil (idReptil INT,
 				 tipoDeEscamas VARCHAR(50) NOT NULL,
 				 FOREIGN KEY (idReptil) REFERENCES Animal(idAnimal));
 				 
-CREATE TABLE Habitat (idHabitat SERIAL NOT NULL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Habitat (idHabitat SERIAL NOT NULL PRIMARY KEY,
 					 nomeHabitat VARCHAR(50) NOT NULL);
 					 
-CREATE TABLE Atracao (idAtracao SERIAL NOT NULL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Atracao (idAtracao SERIAL NOT NULL PRIMARY KEY,
 					 nomeAtracao VARCHAR(50) NOT NULL,
 					 idHabitat INT,
 					 FOREIGN KEY (idHabitat) REFERENCES Habitat(idHabitat));
 					 
-CREATE TABLE Animal_Habitat(idAnimalHabitat SERIAL NOT NULL PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Animal_Habitat(idAnimalHabitat SERIAL NOT NULL PRIMARY KEY,
 						   idAnimal INT,
 						   idHabitat INT,
 						   FOREIGN KEY (idAnimal) REFERENCES Animal(idAnimal),
@@ -39,13 +39,13 @@ INSERT INTO Animal(nomeAnimal, idadeAnimal, generoAnimal)
 	VALUES
 	('SIMBA', 7, 'MACHO'),			-- id 1
 	('PUMBA', 4, 'MACHO'),			-- id 2
-	('NALA', 6, 'FÊMEA'),			-- id 3
+	('NALA', 6, 'FEMEA'),			-- id 3
 	('ZAZU', 1, 'MACHO'),			-- id 4
 	('IAGO', 2, 'MACHO'),			-- id 5
-	('SCUTTLE', 4, 'FÊMEA'),		-- id 6
+	('SCUTTLE', 4, 'FEMEA'),		-- id 6
 	('KAA', 1, 'MACHO'),			-- id 7
 	('LOUIS', 5, 'MACHO'),			-- id 8
-	('TICK-TOCK', 3, 'FÊMEA');		-- id 9
+	('TICK-TOCK', 3, 'FEMEA');		-- id 9
 	
 INSERT INTO Mamifero(idMamifero, especie)
 	VALUES
